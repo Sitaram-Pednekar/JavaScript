@@ -1,0 +1,347 @@
+1) In JavaScript, variables are dynamically typed
+
+You do not declare the type.
+
+let x = 10;      // number
+x = "hello";     // now string
+x = true;        // now boolean
+
+
+Same variable. Different types. JS allows this.
+
+Type belongs to the value, not the variable.
+
+This is a big mindset shift.
+
+2) Ways to Declare Variables
+
+JS has 3 keywords:
+
+Keyword	Scope	Can change value	Old/Modern	Use?
+var	Function	Yes	Old	❌ Avoid
+let	Block {}	Yes	Modern	✅ Use
+const	Block {}	No reassignment	Modern	✅ Prefer
+Example
+let age = 21;
+const PI = 3.14;
+
+3) Scope in JavaScript (VERY IMPORTANT)
+Block Scope (let, const)
+{
+  let x = 10;
+}
+console.log(x); // ❌ Error
+
+Function Scope (var)
+{
+  var x = 10;
+}
+console.log(x); // ✅ Works (problematic!)
+
+
+This is why var is dangerous.
+
+4) Hoisting (Classic JS Behavior)
+
+JS moves declarations to the top.
+
+console.log(a);
+var a = 5;
+
+
+JS reads it like:
+
+var a;
+console.log(a); // undefined
+a = 5;
+
+
+But with let and const:
+
+console.log(a);
+let a = 5; // ❌ ReferenceError
+
+
+This is called the Temporal Dead Zone.
+
+5) Variables and Memory in JS (Critical Concept)
+
+JS has two memory areas:
+
+Memory	Stores
+Stack	Primitive values
+Heap	Objects, arrays, functions
+Primitive Types (Stack)
+
+number
+
+string
+
+boolean
+
+null
+
+undefined
+
+symbol
+
+bigint
+
+let a = 10;
+let b = a;
+b = 20;
+console.log(a); // 10
+
+
+Copied by value.
+
+Reference Types (Heap)
+
+object
+
+array
+
+function
+
+let obj1 = { name: "Twisty" };
+let obj2 = obj1;
+
+obj2.name = "IT Guy";
+
+console.log(obj1.name); // "IT Guy"
+
+
+Copied by reference (same memory).
+
+This is where most JS bugs come from.
+
+6) const with Objects (Trick Question)
+const user = { name: "Twisty" };
+user.name = "New Name"; // ✅ allowed
+
+
+Why?
+
+Because const protects the reference, not the internal data.
+
+You cannot do:
+
+user = {}; // ❌
+
+7) Undefined vs Null
+let x;
+console.log(x); // undefined
+
+let y = null;
+
+undefined	null
+JS default	Intentionally empty
+Not assigned	Assigned empty
+8) Reassignment vs Mutation
+Operation	Happens to
+Reassignment	Variable
+Mutation	Object data
+let a = 5;
+a = 10; // reassignment
+
+let obj = {x:1};
+obj.x = 2; // mutation
+
+9) The Real JS Variable Model (mental model)
+
+A JS variable is:
+
+A name that points to either a value (stack) or a reference (heap)
+
+name → value        (primitive)
+name → address → object (reference)
+
+10) Golden Rules for JS Variables
+
+Always use const first
+
+Use let only if value must change
+
+Never use var
+
+Be careful with objects/arrays (reference behavior)
+
+Understand scope before writing logic
+
+11) One Example That Combines Everything
+const user = { score: 0 };
+
+function addScore(u) {
+  u.score += 10;
+}
+
+addScore(user);
+console.log(user.score); // 10
+
+
+Why? Because objects are passed by reference.
+
+
+
+
+
+
+
+If you want to know more how variables actually are see below it's for general to know more
+
+Think of a variable as:
+
+A named container that holds a value which can change.
+
+That’s the whole game. Everything else is details.
+
+1) The Core Idea
+
+A variable has three things:
+
+Name  →  Type  →  Value
+
+
+Example (conceptually):
+
+age → integer → 21
+name → string → "Twisty"
+
+
+Name = how you refer to it
+
+Type = what kind of data it can hold
+
+Value = what it currently holds
+
+2) Why Variables Exist
+
+Programs need memory.
+
+Variables are how programs remember things while running.
+
+Without variables, a program would be like a person with no short-term memory.
+
+3) Types of Variables (Data Types)
+
+The type tells the computer how to store and treat the value.
+
+Type	Example	Meaning
+Integer	10	Whole numbers
+Float	3.14	Decimal numbers
+String	"Hello"	Text
+Boolean	true / false	Yes or No
+Array	[1,2,3]	List of values
+Object	{name:"A"}	Structured data
+
+Type = rulebook for the variable.
+
+4) Declaration vs Initialization
+
+These are often confused.
+
+Declaration
+
+Telling the program the variable exists.
+
+int age;
+
+Initialization
+
+Giving it a value.
+
+age = 21;
+
+
+Or both at once:
+
+int age = 21;
+
+5) Mutability (Can it change?)
+
+Some variables can change, some can’t.
+
+Kind	Meaning
+Variable	Value can change
+Constant	Value cannot change
+
+Example idea:
+
+PI = 3.14159  (constant)
+score = 0     (variable)
+
+6) Scope (Where it exists)
+
+Scope is where the variable is visible.
+
+Scope	Exists where
+Local	Inside a function/block
+Global	Entire program
+Block scope	Inside { } only
+
+Think: How far can this variable be seen?
+
+7) Lifetime (How long it lives)
+
+Created when program runs or function starts
+
+Destroyed when program ends or function exits
+
+A variable is not permanent. It lives in memory temporarily.
+
+8) Variables and Memory (Important for IT mindset)
+
+When you create a variable:
+
+The computer allocates memory (RAM)
+
+Stores the value
+
+Uses the name to reference that memory location
+
+So internally:
+
+name → memory address → value
+
+
+The name is just a label.
+
+9) Reassignment
+
+You can change the value:
+
+score = 10
+score = 20
+
+
+Same variable, new value.
+
+10) Key Mental Model
+
+A variable is:
+
+A label for a memory location that stores a typed value during program execution.
+
+That’s the theory in one line.
+
+11) Common Beginner Confusions
+Confusion	Reality
+Variable stores the name	No, it stores the value in memory
+Type is optional	Type always exists, even if hidden
+Variable equals value	Variable points to where value is stored
+Global variables are good	Usually bad practice
+12) Real-World Analogy
+
+Variable = labeled box
+
+Label = name
+
+Box type = type
+
+What’s inside = value
+
+Where box is placed = scope
+
+How long box stays = lifetime
+
+
