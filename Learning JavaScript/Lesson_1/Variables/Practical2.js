@@ -1,3 +1,13 @@
+
+
+
+//Deep Knowledge About VARIABLES
+//Variables
+
+
+
+
+
 //here are multiple datatypes in Javascript but its automatically assigned if you need to use those for strict action need to use TypeScript
 //see this are the following datatypes
 //int : Integers are used to represent whole numbers without decimal points. They can be positive, negative, or zero. In JavaScript, there is no specific integer type; instead, all numbers are represented as floating-point values. However, you can use integers in JavaScript by simply assigning whole numbers to variables.
@@ -30,3 +40,15 @@ let sym2 = Symbol("description");
 console.log(sym1 === sym2); // Output: false
 
 //this is the basic datatypes in JavaScript but there are also some complex datatypes like Object, Array, Function etc. which we will learn in upcoming lessons.
+
+
+
+//if you need to find what is the type of variable because the machine automatically assigns the datatypes if you need to see 
+//we uses typeof function
+//example
+console.log(typeof(y));//return object
+console.log(typeof(isStudent));//return boolean
+
+//and we can assign to variable also like
+let whattype= typeof(y);
+console.log(whattype);//also prints object

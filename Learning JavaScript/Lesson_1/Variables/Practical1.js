@@ -1,3 +1,14 @@
+
+
+
+//let's learn practically about "Variables"
+
+//VARIABLES
+
+
+
+
+
 //In JavaScript, we can declare variables using the 'var', 'let', or 'const' keywords.
 //In past We used var but after some times "let" keyword been used oftenly 
 //let keyword actually used to create a variable where we can change the value after assignation.
