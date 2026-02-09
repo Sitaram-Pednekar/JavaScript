@@ -51,4 +51,3 @@ let M= Boolean(K);
 // let M=Boolean(K);
 //output will be true
 //in this case there is something value is present, the variable is null then only it writes 0 otherwise true or 1;
-
