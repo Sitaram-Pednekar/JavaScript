@@ -138,3 +138,18 @@ console.log(z); // 3 (last value returned)
 
 console.log(5 + 2 * 3);   // 11 (* first)
 console.log((5 + 2) * 3); // 21 (parentheses first)
+
+
+
+//Here people mistake that they didn't take seriously about which operation should take first they directly uses whatever operation and make confusion
+
+console.log(5 + 4 + "1");//don't do this it will give you 91 
+//because the computer think like (5+4)1=91 
+console.log("1" + 5 + 4);//this output make you confuse the answer is 154 
+//because here the computer thinks it's a string not a number and string
+//where you are writing equation and whatever use brackets makes no confusion
+//like
+console.log("1"+(5+4));
+//the output should 19.
+
+
