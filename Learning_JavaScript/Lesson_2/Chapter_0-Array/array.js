@@ -62,6 +62,8 @@ for(let i = 0; i < fruits.length; i++){
     console.log(fruits[i]); 
 }
 // Output: "apple", "orange"
+//don't worry it's a loop where we will see in upcoming chapters
+
 
 for(let fruit of fruits){
     console.log(fruit);
