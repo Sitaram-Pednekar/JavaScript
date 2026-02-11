@@ -1,56 +1,53 @@
-//here we studying how the object merge work
+// Merging Objects in JavaScript
 
-//like array we do then what will be the result let's see
+// Creating two separate objects
 const obj1 = {
-    A:'a',
-    D:'d'
-}
-const obj2 ={
-    B:'b',
-    C:'c',
+    A: 'a',
+    D: 'd'
+};
 
-}
-const obj3={ obj1 , obj2};
+const obj2 = {
+    B: 'b',
+    C: 'c',
+};
+
+// Merging objects by nesting (like pushing array into array)
+const obj3 = { obj1, obj2 };
 console.log(obj3);
 /*
-
-output:
+Output:
 { obj1: { A: 'a', D: 'd' }, obj2: { B: 'b', C: 'c' } }
-
+- Result is nested objects, not flattened
 */
-//here same happened like array where it categorized in nested if we need plain 
 
-const obj4=Object.assign(obj1,obj2);
+// Using Object.assign to merge objects (target, source)
+const obj4 = Object.assign(obj1, obj2);
 console.log(obj4);
 /*
-
-output:
+Output:
 { A: 'a', D: 'd', B: 'b', C: 'c' }
-here the syntax of assign is
-
-
-Object.assign(target,source)
-
-in that upper example the target is obj1 that's why the obj1 value also change
+- obj1 is the target, so it is modified
 */
 
 console.log(obj1);
-//{ A: 'a', D: 'd', B: 'b', C: 'c' }
-//see the obj1 value also change instead of this we uses {} on target value how let's see
+// Output: { A: 'a', D: 'd', B: 'b', C: 'c' }
+// Notice: obj1 changed because it was the target
 
-//here we are creating obj object not obj1
+// To merge without modifying the original object, use empty object as target
 const obj = {
-    A:'a',
-    D:'d'
-}
-const obj5 = Object.assign({}, obj, obj2);//now the output will perfect and no affect on obj;
+    A: 'a',
+    D: 'd'
+};
+
+const obj5 = Object.assign({}, obj, obj2);
 console.log(obj5);
-console.log(obj);//the obj won't change
+// Output: { A: 'a', D: 'd', B: 'b', C: 'c' }
 
+console.log(obj);
+// Output: { A: 'a', D: 'd' } 
+// obj remains unchanged
 
-//here another simplest technique and most of people uses this 
-
-const object= {...obj1 , ...obj2};
+// Another modern and popular way: Spread Operator
+const object = { ...obj1, ...obj2 };
 console.log(object);
-//the output:
-//      { A: 'a', D: 'd', B: 'b', C: 'c' }
+// Output: { A: 'a', D: 'd', B: 'b', C: 'c' }

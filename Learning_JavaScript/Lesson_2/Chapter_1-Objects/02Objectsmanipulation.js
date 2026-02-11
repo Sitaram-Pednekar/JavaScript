@@ -1,41 +1,35 @@
-//Object
+// Objects with Methods
 
-//let's make the function in object
-
-const User= {
+const User = {
     ID: '123',
     Name: 'Twisty',
     Address: 'India',
-    PinCode:'4040'
+    PinCode: '4040'
+};
 
-}
-
-//the simple method that where the syntax like
+// Adding a method to the object
 /*
-
-object_name.function_name= function(){
-    //body
+Syntax:
+object_name.function_name = function(){
+    // body
 }
-
 */
 
-User.AllDetails = function(){
+User.AllDetails = function() {
     console.log("Hello, My name is Twisty from India");
-
-}//we made it
+};
 
 console.log(User.AllDetails());
-/*
+// Output:
+// Hello, My name is Twisty from India
+// undefined is printed after because the function has no return value
 
-output:
-    Hello, My name is Twisty from India
+// Accessing parent object keys using 'this'
+User.accessing = function() {
+    console.log(`${this.Name}`); // backticks used for template literal
+};
 
-*/
-//if need to access the key from their own parent object in function
-//we uses "this" keyword how let's see
-
-User.accessing = function(){
-    console.log(`${this.Name}`);//we used backticks(`)
-}
-
-console.log(User.accessing());//prints Twisty
+console.log(User.accessing());
+// Output:
+// Twisty
+// undefined is printed after because the function has no return value
