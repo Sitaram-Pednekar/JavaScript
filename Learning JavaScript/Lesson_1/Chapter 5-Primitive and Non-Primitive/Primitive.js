@@ -1,30 +1,44 @@
+/*
+  PRIMITIVE DATA TYPES
 
+  Primitive values are stored in stack memory.
+  They can hold only a single value and are copied by value.
 
-/* 
-            Primitive:
-                    Primitive is Stack Memory used to store the values that can store only one value at a time.
-                    Ex:
-                        Number , String , BigInt , Undefined , Null , Symbol , Boolean , etc.,
-
+  Types:
+  Number, String, BigInt, Undefined, Null, Symbol, Boolean
 */
 
-//Let's make a simple code that uses all this primitive values
 
-let CustomerID1 = Symbol(245);//symbol need uniqueness
-let CustomerID2 = Symbol(345);//see both are with different values
-let CustomerName = "Twisty";//it's a string
-let ReferenceNumber = "1q23129390182730172381732703434324234234324324234324234322384032";//may count in bigInt
-let Hobby;//may count in undefined
-let Attendence = false;//may count in boolean
-let salary= null;//may count in null
-
-console.log(typeof(CustomerID1));
-console.log(typeof(CustomerID2))
-console.log(typeof(CustomerName))
-console.log(typeof(ReferenceNumber))
-console.log(typeof(Hobby))
-console.log(typeof(Attendence))
-console.log(typeof(salary))
+// Symbol (always unique)
+let customerID1 = Symbol(245);
+let customerID2 = Symbol(345);
 
 
+// String
+let customerName = "Twisty";
 
+
+// BigInt (must use 'n' at the end)
+let referenceNumber = 123129390182730172381732703434324234234324324234324234322384032n;
+
+
+// Undefined (declared but not assigned)
+let hobby;
+
+
+// Boolean
+let attendance = false;
+
+
+// Null (intentional empty value)
+let salary = null;
+
+
+// Checking data types
+console.log(typeof customerID1);     // "symbol"
+console.log(typeof customerID2);     // "symbol"
+console.log(typeof customerName);    // "string"
+console.log(typeof referenceNumber); // "bigint"
+console.log(typeof hobby);           // "undefined"
+console.log(typeof attendance);      // "boolean"
+console.log(typeof salary);          // "object" (JavaScript quirk for null)

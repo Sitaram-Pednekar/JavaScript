@@ -1,53 +1,63 @@
-//TYPECONVERSION
+// TYPE CONVERSION IN JAVASCRIPT
 
-
-
-
-//In javascript the main problem is we didn't know what is the datatype without using typeof method that's why people also learn typescript
-//let's see practically how the conversion works in javascript
-
-
-//let's make an string variable that stores some value
-let Y= "33";
-console.log(Y)//the output will 33
-
-//to check type of this variable 
-console.log(typeof Y)//like this syntax also we can use no need of brackets but using brackets feels strictness and good for practice
-
-//now we convert it into integer and 33 is a number makes valid reason
-
-let X= Number(Y);//here we are using Number function that converts the variable into integer
-console.log(X);//the output will 33
-
-//let's check the type of this variable
-console.log(typeof(X));//it shows Number means it converted to Number
-
-//here's a catch if we do something like this
-let A="33abc";//where not only number but also an alphabet if we convert it let's see what happened
-console.log(A);//firstly we print to see what actually it stores
-//to see type
-console.log(typeof(A));
-
-//let's convert
-let B=Number(A);//now it will convert to Number but when we print it shows NaN
-//NaN
-//it simply mean not a number means the compiler feels like there is an error.
-
-
-// what we discussed
-/* 
-Y="33" => valid for Number
-Y="33abc" => invalid for Number => error NaN
-
+/*
+  JavaScript automatically assigns data types to variables.
+  Sometimes, we need to manually convert one data type into another.
+  This process is called type conversion.
 */
 
-//let's see about boolean
-//In boolean 0 => true & 1 => false
-let K= 1;
-let M= Boolean(K);
-//output will be true
 
-// let K="abc";
-// let M=Boolean(K);
-//output will be true
-//in this case there is something value is present, the variable is null then only it writes 0 otherwise true or 1;
+// A string that contains a number
+let Y = "33";
+console.log(Y);           // Output: "33"
+console.log(typeof Y);    // "string"
+
+
+// Convert the string into a number
+let X = Number(Y);
+console.log(X);           // Output: 33
+console.log(typeof X);    // "number"
+
+
+/*
+  Important case:
+  What happens if the string contains both numbers and letters?
+*/
+
+let A = "33abc";
+console.log(A);           // "33abc"
+console.log(typeof A);    // "string"
+
+// Try converting to number
+let B = Number(A);
+console.log(B);           // NaN
+console.log(typeof B);    // "number"
+
+/*
+  NaN means "Not a Number".
+  It appears when JavaScript fails to convert a value into a valid number.
+*/
+
+
+/*
+  Summary:
+  "33"    -> valid for Number conversion
+  "33abc" -> invalid -> results in NaN
+*/
+
+
+// Boolean conversion examples
+
+let K = 1;
+let M = Boolean(K);
+console.log(M);           // true
+
+/*
+  Rules for Boolean conversion:
+  0, null, undefined, "", and NaN  -> false
+  Any other value                  -> true
+*/
+
+let value = "abc";
+let result = Boolean(value);
+console.log(result);      // true (because the string is not empty)

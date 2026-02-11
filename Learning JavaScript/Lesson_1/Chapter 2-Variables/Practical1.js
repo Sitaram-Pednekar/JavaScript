@@ -1,41 +1,32 @@
+/*
+  Let's learn about variables in JavaScript.
 
+  Variables can be declared using 'var', 'let', or 'const'.
+  In older JavaScript, 'var' was commonly used, but now 'let' and 'const' are preferred.
 
+  - 'let' allows you to change the value later.
+  - 'const' does not allow reassignment after the value is set.
+*/
 
-//let's learn practically about "Variables"
-
-//VARIABLES
-
-
-
-
-
-//In JavaScript, we can declare variables using the 'var', 'let', or 'const' keywords.
-//In past We used var but after some times "let" keyword been used oftenly 
-//let keyword actually used to create a variable where we can change the value after assignation.
-
-//"const" keyword is also used to create a variable but we can't change the value after assignment.where we can use them as ID and whatever.It fixed.
-
-
-
-
-//let's take Integer as an example where we stores the value of age.
+// Example using a number (integer)
 let age = 25;
 
-//now need to print it will print 25 Specially don't use ""
-console.log(age);//if we do like console.log("age") this will print "age" not "25" because " " in this what we write print exactly same.
+// Print the value stored in 'age'
+console.log(age); // Prints: 25
+
+// If you write console.log("age"), it will print the word "age",
+// because anything inside quotes is treated as a string.
 
 
-//Now String
-let name = "Twisty"
-console.log(name);//let's run
+// Example using a string
+let name = "Twisty";
+console.log(name); // Prints: Twisty
 
-//use const
-const UserID=1234;
 
-// UserID=55;//this will not run because it's already assigned get's error
-//       ^
+// Example using const
+const userID = 1234;
+
+// userID = 55; // This will cause an error because const cannot be reassigned
 // TypeError: Assignment to constant variable.
 
-console.log(UserID);
-
-
+console.log(userID);
