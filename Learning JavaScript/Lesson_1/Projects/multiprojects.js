@@ -97,7 +97,6 @@ user2.name = "IT Guy";
 console.log(user1.name); // Twisty
 console.log(user2.name); // IT Guy
 
-
 /*
 ================================================================
 ====================== 6) ATTENDANCE TRACKER ====================
