@@ -119,6 +119,6 @@ const books = [
   { title: "Book 100", subject: "Economics", publishDate: "2020-06-10" }
 ];
 
-
+//this filter function is used to push values in array.
 const history= books.filter(value=>value.subject==="History");
 console.log(history);
