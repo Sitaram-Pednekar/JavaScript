@@ -1,0 +1,253 @@
+What is DOM?
+DOM = Document Object Model
+It is a programming interface for HTML.
+When the browser loads HTML:
+It converts HTML into a tree structure
+Every tag becomes an object
+JavaScript can access and modify those objects
+
+Example HTML:
+
+<body>
+  <h1>Hello</h1>
+  <p>World</p>
+</body>
+
+
+Browser converts it into:
+
+Document
+ └── html
+      └── body
+           ├── h1
+           └── p
+
+
+This structure is called the DOM Tree.
+
+===========================================================================================================
+What is document?
+
+    document is the root object of the DOM.
+    Everything starts from it.
+    console.log(document);
+
+===========================================================================================================
+Selecting Elements (Most Important)
+Code:
+    getElementById()
+    document.getElementById("title");
+
+Returns ONE element.
+
+===========================================================================================================
+Selecting Elements (Most Important)
+Code:
+    getElementById()
+    document.getElementById("title");
+
+
+Returns ONE element.
+---------------------------
+
+getElementsByClassName()
+document.getElementsByClassName("box");
+
+Returns HTMLCollection (array-like).
+---------------------------
+getElementsByTagName()
+document.getElementsByTagName("p");
+
+---------------------------
+
+querySelector() ⭐ (Modern way)
+document.querySelector(".box");
+
+
+Returns first match.
+---------------------------
+
+querySelectorAll()
+document.querySelectorAll(".box");
+
+
+Returns NodeList.
+---------------------------
+
+Changing Content
+Change text
+Code:       
+    element.textContent = "New Text";
+
+Change HTML
+element.innerHTML = "<b>Bold</b>";
+
+===========================================================================================================
+
+Difference:
+textContent → safe
+innerHTML → can insert HTML
+
+Changing Styles
+element.style.color = "red";
+element.style.backgroundColor = "black";
+
+
+---------------------------
+Better way:
+
+element.classList.add("active");
+element.classList.remove("active");
+element.classList.toggle("active");
+
+===========================================================================================================
+
+Creating Elements
+let div = document.createElement("div");
+div.textContent = "Hello";
+document.body.appendChild(div);
+
+===========================================================================================================
+
+Removing Elements
+element.remove();
+
+or
+
+parent.removeChild(child);
+
+===========================================================================================================
+
+Events (Very Important)
+
+Events = user interactions
+
+click
+mouseover
+keydown
+submit
+change
+
+Adding Event
+button.addEventListener("click", function() {
+  console.log("Clicked");
+});
+
+===========================================================================================================
+
+Event Object
+button.addEventListener("click", function(event) {
+  console.log(event);
+});
+
+
+event.target → the element clicked
+
+===========================================================================================================
+
+Event Propagation
+
+Two phases:
+    Capturing
+    Bubbling (default)
+
+Event goes:
+
+Document → Element (capturing)
+Element → Document (bubbling)
+
+===========================================================================================================
+
+Traversing DOM
+element.parentElement
+element.children
+element.firstElementChild
+element.lastElementChild
+element.nextElementSibling
+element.previousElementSibling
+
+
+===========================================================================================================
+
+Attributes
+
+Get attribute:
+Code:
+    element.getAttribute("id");
+
+
+Set attribute:
+Code:
+    element.setAttribute("class", "box");
+
+===========================================================================================================
+
+Forms Handling
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+});
+
+
+preventDefault() stops page refresh.
+===========================================================================================================
+
+DOM vs BOM
+
+DOM → HTML structure
+BOM → Browser features (window, location, history)
+
+Example:
+
+console.log(window.location.href);
+
+===========================================================================================================
+document vs window
+
+window → global object
+document → part of window
+
+Actually:
+
+window.document
+
+===========================================================================================================
+Important Difference
+Property	Meaning
+innerHTML	Includes HTML
+textContent	Only text
+innerText	Visible text only
+
+===========================================================================================================
+Performance Tip
+
+Bad:
+
+for (...) {
+  document.body.innerHTML += "<p>Hi</p>";
+}
+
+
+Good:
+
+let fragment = document.createDocumentFragment();
+
+
+Then append once.
+
+===========================================================================================================
+
+DOM is Synchronous
+
+JavaScript modifies DOM step by step.
+
+But rendering is optimized by browser.
+
+===========================================================================================================
+Why DOM is Important?
+
+Because:
+    React
+    Angular
+    Vue
+
+All manipulate DOM internally.
