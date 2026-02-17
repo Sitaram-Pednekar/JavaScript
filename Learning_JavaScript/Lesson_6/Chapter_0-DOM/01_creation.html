@@ -3,48 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM creation</title>
-    <style>
-        *{
-            background-color: grey;
-            color: rgb(255, 255, 255);
-        }
-    </style>
+    <title>DOM</title>
 </head>
 <body>
-    <h1>
-        DOM Creation
-        <li>
-            
-        </li>
-    </h1>
 </body>
+
+
+
+<!-- 
+//Here to Use Javascript in the same file we uses the script tag     
+-->
+
 <script>
+/*
+    let's firstly create an tag using DOM
+    DOM D-document
+    document => is an object that created by browser
+    let's use this    
+*/
+    const h1=document.createElement("h1");//here the document is an object where the createElement is a function that creates tag.
+    //here we are using <h1> tag to print "DOM Creation"
+    //let's do
+    h1.innerText= "DOM CREATION";//Here we stores value there are multiple function that stores , like innerHTML , innerText and more.
+
+    document.body.appendChild(h1);
+    //here we take the content in center
+    h1.style.textAlign="center";
+    //let's change color
+    h1.style.color="white"
+    //changing background
+    document.body.style.backgroundColor="grey"
     
-    //let's create element using document object
-    const tag=document.createElement("li")//here we created tag named "li" used for list
-    tag.innerHTML="Hello";//here we gave value to a tag attribute
-    document.body.appendChild(tag)
-    //let's make function that adds list
-
-    function listValue(Name){
-        const tagname=document.createElement("li");
-        tagname.innerHTML=Name;
-        document.body.appendChild(tagname);
-        tagname.style.color="blue";
-        tagname.style.padding="15px";
-    }
-    listValue("Lesson_1");
-    listValue("Lesson_2");
-
-    //let's make a link 
-    function linkCreation(link){
-        const tagname=document.createElement("p");
-        tagname.innerHTML=link;
-        document.body.appendChild(tagname);
-    }
-    linkCreation('<a href="chatgpt.com">Chatgpt</a>')
-    linkCreation('<a href="google.com">google</a>')
-
 </script>
+
 </html>
