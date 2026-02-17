@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Function(DOM)</title>
 </head>
 <body>
-    
+    <h1>Here we creating functions using DOM</h1>
 </body>
+
+<script>
+    //here let's firstly color the background and set some style
+    document.body.style.backgroundColor="grey";
+    document.body.style.color="#1F2937";
+
+    //let's make the function
+    //Here we are making the function that calculate value and print on screen
+    
+    function calculator(A1,A2){
+        addition(A1,A2);
+        subtraction(A1,A2);
+        Division(A1,A2);
+        Multiplication(A1,A2);
+    }
+    const addition=(a,b)=>(a+b)
+    const subtraction=(a,b)=>(a-b)
+    const Division=(a,b)=>(a/b)
+    const Multiplication=(a,b)=>(a*b)
+
+    //let's make tag to print values 
+    //let's use list 
+    const list=document.createElement("li");
+    list.innerText=
+    (`Addition of 5 and 4 is ${addition(5,4)}\n
+    subtraction of 5 and 4 is ${subtraction(5,4)}\n
+    Division of 5 and 4 is ${Division(5,4)}\n
+    Multiplication of 5 and 4 is ${Multiplication(5,4)}`)
+    document.body.appendChild(list)//this will push the values in it
+</script>
 </html>
