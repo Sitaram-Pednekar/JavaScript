@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All EventListener Options Example</title>
+</head>
+<body>
+
+  <div id="parent" style="padding:40px; background:#ddd;">
+    Parent
+    <button id="child">Click Me</button>
+  </div>
+
+  <script>
+    // Select elements
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+
+    // Create AbortController (used for the `signal` option)
+    const controller = new AbortController();
+
+    // Handler function
+    function handleClick(event) {
+
+      console.log("Event Triggered");
+
+      console.log("Event Phase:", event.eventPhase);
+      // 1 = Capturing phase
+      // 2 = At target
+      // 3 = Bubbling phase
+
+      console.log("Target Element:", event.target);
+      // The actual element that was clicked
+
+      console.log("Current Target:", event.currentTarget);
+      // The element on which the listener is attached
+
+      // Uncomment below to test preventDefault behavior
+      // event.preventDefault();
+
+    }
+
+    /*
+      Add Event Listener with ALL possible options:
+
+      capture: true
+        -> Runs during capturing phase (top → down)
+
+      once: true
+        -> Automatically removes listener after first execution
+
+      passive: false
+        -> Allows use of preventDefault()
+           (If true, preventDefault() will throw warning)
+
+      signal: controller.signal
+        -> Allows removal using controller.abort()
+    */
+    parent.addEventListener("click", handleClick, {
+      capture: true,
+      once: true,
+      passive: false,
+      signal: controller.signal
+    });
+
+    // Another listener on child for comparison (default options)
+    child.addEventListener("click", function() {
+      console.log("Child Clicked (Default Bubbling)");
+    });
+
+    /*
+      Remove ALL listeners attached with this signal
+      after 5 seconds
+    */
+    setTimeout(() => {
+      controller.abort(); 
+      console.log("Listeners removed using AbortController");
+    }, 5000);
+
+  </script>
+
+</body>
+</html>
